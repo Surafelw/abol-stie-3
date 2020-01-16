@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact us page</title>
+</head>
+<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background-color: ;
+			 color: black; text-align: center; margin-top: auto;
+			 
+			   margin-left: 300px;
+			   
+		}
+		
+		#lst,#fst,#mle,#select{
+			font-size: 20px;
+
+		}
+		#container{
+			width: 1000px;
+			height: 1000px;
+			
+			margin:auto;
+
+			
+		}
+
+		#state{
+			margin-right: -70px;
+			font-size: 20px;
+			width: 200px;
+			margin-top: -10px;
+				
+
+		}
+#cty{
+	margin-right:0px; 
+	font-size:20px; 
+	
+	
+}
+#myDiv{
+	background-color: #001a1a;
+	height: 500px; 
+	width: 800px;
+	margin:auto;
+	padding:auto;
+	margin-left: 0px;
+	margin-top: 100px;
+}
+		
+h1{
+	color: white;
+	 font-family: verdana;
+	 background-color: #000d1a;
+}
+#frm{
+	margin: 0;
+	padding:0;
+
+
+}
+label{
+	font-family: verdana;
+	font-size: 20px;
+	 color: white; 
+	 margin-right: 60px;
+}
+input{
+	width: 300px;
+}
+
+#st{
+	margin-left: -280px;
+}
+
+
+.navbars ul{
+list-style-type: none;
+
+	
+}
+.navbars ul li{
+
+	background-color: red;
+	color: gray;
+
+
+	
+}
+.navbars ul li a{
+	padding:20px;
+	padding-left: 100px;
+			text-decoration: none;
+	font-size: 20px;
+	font-family: verdana;
+	color: white;
+	display: inline block;
+	float: right;
+	background-color: #212223;
+
+
+
+
+
+}
+.navbars ul li a:hover{
+	
+	color: #CCC;
+	}
+
+
+	</style>
+
+</head>
+<div class="navbars">
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="aboutus.html">About us</a></li>
+		<li><a href="gallery.html">Abol Gallery</a></li>
+		<li><a href="history.html">History</a></li>
+		<li><a href="contactus.html">Contact us</a></li>
+
+
+	</ul>
+
+
+
+</div>
+<div id ="container">
+<cente>
+	<div id ="myDiv">
+<body>
+	
+<div id ="frm">
+
+	<h1>Welcome to ABOL restaurant</h1></br></br>
+
+
+<form id ="myForm">
+	<label>Last Name:</label>
+	<input style="text-transform: uppercase;" type="text" id="lst" onblur="lastNm()"></br><br>
+
+
+	<label>First Name:</label>
+	<input style="text-transform: uppercase;" type="text" id="fst" onblur="firstNm()"></br></br>
+	
+
+
+<label>Street Address:</label>
+<input style="margin-left: -40px;" type="text" id="mle" onblur="address()"></br></br>
+
+
+
+<label> City:</label>
+
+
+<input style="text-transform: uppercase; width: 300px; margin-left: 70px;"  type="text"  id="cty" onblur="city()">
+	
+	
+
+</br><br>
+
+<div id ="st">
+<label style="margin-left: -90px;"> State:</label></div>
+
+	<select id ="state" onblur="stet()"><option value="Default">Select State</option></select><br><br>
+
+	<label>Zipcode:</label>
+<input style="font-size: 20px; margin-left: 25px;" type="text" id="zip" onblur="cde()"></br></br>
+
+
+<input style="font-size: 20px; margin-top: 10px; height: 40px; width: 200px;  border-radius: 20px; background-color: black; color: white; margin-left: 60px;" type="button" onclick="rSet()" value="Reset">
+
+
+</form>
+</div>
+
+
+
+<script type="text/javascript">
+
+		//Verifing Last Name
+
+function lastNm(){
+var lastName =  /^[a-zA-Z]+$/;
+if(lst.value.match(lastName)){
+return true;
+}else{
+document.getElementById('lst');
+ alert("Last name must be filled!!!" + "  Enter non numeric characters");
+lst.focus();
+return false;
+}
+
+}
+
+
+//Verifying First Name
+
+function firstNm(){
+	var firstName =  /^[a-zA-Z]+$/;
+	if(fst.value.match(firstName)){
+		return true;
+
+	}else{
+		document.getElementById('fst');
+		alert("First name must be filled!!!" + "  Enter non numeric characters");
+		fst.focus();
+		return false;
+	}
+}
+//validate city
+
+function city(text){
+	//text.value = text.value.toUpperCase();
+			
+	var validCity =  /^[a-zA-Z]+$/;
+	if(cty.value.match(validCity)){
+		return true;
+		
+
+	}else{
+		document.getElementById('cty');
+		alert("Invalid entry" + "  City must be filled" );
+		fst.focus();
+		return false;
+	}
+}
+
+		//Verifing street Address
+
+		function address(){
+	 
+
+		var verifyEmail = /^[0-9a-zA-Z ]+$/;;
+
+    if (mle.value.match(verifyEmail)) {
+    	return true;
+   
+   
+ }else{
+ 	document.getElementById('mle');
+ 	alert('Please enter a valid address');
+ 	mle.focus();
+ 	return false;
+
+ }
+		}
+
+
+//Verifing Zipcode
+
+function cde(){
+	var x = document.getElementById('zip').value
+	
+
+	var isValid = /^\d{5}$|^\d{5}-\d{4}$/.test(x);
+	if (isValid){
+		
+		document.getElementById('zip').value = x.toString();
+
+	}else{
+		alert('Invalid ZipCode');
+		document.getElementById('zip').focus()
+	}
+}
+
+//Select state option
+
+
+//function stet(){
+
+
+
+var select = document.getElementById('state')
+	stateArray = ['al','ak','as','az','ar','ca','co','ct','de','dc','fm','fl','ga',
+ 'gu','hi','id','il','in','ia','ks','ky','la','me','mh','md','ma',
+ 'mi','mn','ms','mo','mt','ne','nv','nh','nj','nm','ny','nc','nd',
+ 'mp','oh','ok','or','pw','pa','pr','ri','sc','sd','tn','tx','ut',
+ 'vt','vi','va','wa','wv','wi','wy'].sort();
+
+	for(var i = 0; i < stateArray.length; i++){
+		var option = document.createElement('option');
+				txt = document.createTextNode(stateArray[i].toUpperCase());
+				
+		option.appendChild(txt);
+		select.insertBefore(option, select.lastChild);
+
+
+
+	}
+/*}
+if(select !== "stateArray.value"){
+	alert("please select state ")
+	return true;
+}
+else{
+	return true;
+	stateArray[i].toUpperCase();
+
+	*/
+
+
+
+
+
+
+//reset button
+
+function rSet() {
+ document.getElementById("myForm").reset();
+
+ 
+}
+
+	
+
+
+			</script>
+		
+     </body>
+ </div>
+   </center>
+</div>
+</html>
